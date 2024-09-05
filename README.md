@@ -1,1 +1,1 @@
-# Shadcn for Go, Templ
+# Shadcn for Templ
