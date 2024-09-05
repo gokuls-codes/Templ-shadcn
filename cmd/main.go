@@ -32,11 +32,18 @@ func theme(next echo.HandlerFunc) echo.HandlerFunc {
 func main() {
 	app := echo.New()
 
+	app.Static("/static", "assets")
+
 	app.Use(theme)
 
 	app.GET("/", func(c echo.Context) error {
 		theme := c.Get("theme").(string)
 		return utils.Render(c, pages.HomePage(theme == "dark"))
+	})
+
+	app.GET("/button", func(c echo.Context) error {
+		theme := c.Get("theme").(string)
+		return utils.Render(c, pages.ButtonPage(theme == "dark"))
 	})
 
 	log.Fatal(app.Start(":8080"))

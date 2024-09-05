@@ -1,0 +1,18 @@
+package pages
+
+import "github.com/gokuls-codes/go-shadcn/templates"
+import "github.com/gokuls-codes/go-shadcn/templates/components/ui"
+
+templ ButtonPage(dark bool) {
+    @templates.Base(dark) {
+        <div class=" min-h-screen">
+            <main class=" container mx-auto p-6">
+                <h1 class=" text-xl font-semibold">Button</h1>
+                @ui.Button(ui.ButtonProps{Type: "button"}) {
+                    Click
+                }
+            </main>
+        </div>
+        
+    }
+}
